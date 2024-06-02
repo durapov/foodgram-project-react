@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
     'djoser',
 
 ]
@@ -148,7 +148,7 @@ DJOSER = {
     'LOGIN_FIELD': 'email',
     'HIDE_USERS': False,
     'SERIALIZERS': {
-        'user': 'user.serializers.UserSerializer',
+        'user': 'users.serializers.UserSerializer',
         'current_user': 'users.serializers.UserSerializer',
     },
     # 'PERMISSIONS': {
