@@ -1,6 +1,19 @@
 version: '3.3'
 services:
 
+#  backend:
+#    build:
+#      context: ../backend
+#      dockerfile: DockerFile
+#    env_file:
+#      - .env
+#    ports:
+#      - "8000:8000"
+#    volumes:
+#      - media:/app/media
+#      - static:/app/backend_static
+
+
   frontend:
     build:
       context: ../frontend
