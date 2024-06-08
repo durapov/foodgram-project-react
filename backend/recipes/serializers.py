@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Recipe, Ingredient, Tag, IngredientInRecipe, User
+from .models import Recipe, Ingredient, Tag, IngredientInRecipe, User  # , User
 from .validators import username_validator
 from backend.constants import MAX_NAME_LENGTH
 
@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         max_length=MAX_NAME_LENGTH,
         validators=[username_validator]
     )
-    # is_subscribed = serializers.SerializerMethodField(read_omly=True)
+    is_subscribed = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -24,6 +24,10 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name'
 #            'is_subscribed'
         )
+
+
+class UserMeRoleSerializer(UserSerializer):
+    role = serializers.CharField()
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -38,7 +42,7 @@ class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tag
-        fields = ('name', 'color', 'slug')
+        fields = ('id', 'name', 'color', 'slug')
 
 
 class IngredientSerializer(serializers.ModelSerializer):
